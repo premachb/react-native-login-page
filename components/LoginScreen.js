@@ -11,7 +11,6 @@ export default class LoginScreen extends React.Component {
   }
 
   transitionToLoggedInPage(firebaseObject) {
-    debugger;
     this.props.navigation.navigate("Profile", {
       user: firebaseObject.user
     });
@@ -22,6 +21,10 @@ export default class LoginScreen extends React.Component {
       .authenticateUser(this.state.userNameText, this.state.passwordText)
       .then(user => this.transitionToLoggedInPage(user))
       .catch(err => console.error(err));
+  }
+
+  handleCreateUserPressed() {
+    this.props.navigation.navigate("CreateUser");
   }
 
   render() {
@@ -45,6 +48,10 @@ export default class LoginScreen extends React.Component {
           value={this.state.passwordText}
         />
         <Button title="Login" onPress={this.handleLoginPressed.bind(this)} />
+        <Button
+          title="Create User"
+          onPress={this.handleCreateUserPressed.bind(this)}
+        />
       </View>
     );
   }
