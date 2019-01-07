@@ -11,7 +11,6 @@ const firebaseConfiguration = {
 export default class FirebaseAuthenticator {
   constructor() {
     this.firebaseApplication = firebase.initializeApp(firebaseConfiguration);
-    this.firebaseCurrentUser = this.firebaseApplication.currentUser;
   }
 
   createUser(email, password) {
@@ -23,9 +22,6 @@ export default class FirebaseAuthenticator {
   authenticateUser(email, password) {
     return this.firebaseApplication
       .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredential => {
-        this.firebaseCurrentUser = userCredential.user;
-      });
+      .signInWithEmailAndPassword(email, password);
   }
 }

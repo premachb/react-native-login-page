@@ -7,12 +7,20 @@ export default class LoginScreen extends React.Component {
     super(props);
     this.state = { userNameText: "", passwordText: "" };
     this.firebaseAuthenticator = new FirebaseAuthenticator();
+    this.transitionToLoggedInPage.bind(this);
+  }
+
+  transitionToLoggedInPage(firebaseObject) {
+    debugger;
+    this.props.navigation.navigate("Profile", {
+      user: firebaseObject.user
+    });
   }
 
   handleLoginPressed() {
     const result = this.firebaseAuthenticator
       .authenticateUser(this.state.userNameText, this.state.passwordText)
-      .then(user => console.log(user))
+      .then(user => this.transitionToLoggedInPage(user))
       .catch(err => console.error(err));
   }
 

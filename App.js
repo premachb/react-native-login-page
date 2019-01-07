@@ -1,12 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import LoginScreen from "./LoginScreen";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import LoginScreen from "./components/LoginScreen";
+import UserDetails from "./components/UserDetails";
 
-export default class App extends React.Component {
-  render() {
-    return <LoginScreen />;
-  }
-}
+const AppNavigator = createStackNavigator({
+  Home: { screen: LoginScreen },
+  Profile: { screen: UserDetails }
+});
+const AppContainer = createAppContainer(AppNavigator);
+
+export default AppContainer;
 
 const styles = StyleSheet.create({
   container: {
