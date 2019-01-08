@@ -16,6 +16,8 @@ take any of this too seriously :)
 
 ## Generating a Firebase Configuration File
 
+<a name="link"></a>
+
 - Go to https://console.firebase.google.com
 - Click Add Project and give your project a name.
 - Go to your project dashboard and click the Authentication tab
@@ -23,11 +25,8 @@ take any of this too seriously :)
 - Copy the config object in the code
 - Paste it in a file called `firebase-configuration.json` in the root folder of the project.
 
-## How to run yoursel
+## How to run yourself
 
-You need to insert your own firebase configuration as a file `firebase-configuration.json` located in the root folder.
-
-Go to the Firebase Console and generate an application. This should
-give you a configuration which you can copy paste to a file
+[See instructions on generating firebase configuration](#link)
 
 Other than that just run `yarn start` and you're good to go. Or `npm start` if you don't like yarn :D
