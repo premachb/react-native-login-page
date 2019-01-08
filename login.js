@@ -1,12 +1,5 @@
 const firebase = require("firebase");
-const firebaseConfiguration = {
-  apiKey: "AIzaSyDtKdfZM-U5gg-FL0YwHTiFFk5ar0GYLDA",
-  authDomain: "briensreactproject.firebaseapp.com",
-  databaseURL: "https://briensreactproject.firebaseio.com",
-  projectId: "briensreactproject",
-  storageBucket: "briensreactproject.appspot.com",
-  messagingSenderId: "831309344977"
-};
+const firebaseConfiguration = require("./firebase-configuration.json");
 
 export default class FirebaseAuthenticator {
   constructor() {
