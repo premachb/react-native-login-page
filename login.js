@@ -10,7 +10,13 @@ const firebaseConfiguration = {
 
 export default class FirebaseAuthenticator {
   constructor() {
-    this.firebaseApplication = firebase.initializeApp(firebaseConfiguration);
+    // Ensure we don't init Firebase more than once.
+    if (!firebase.apps.length) {
+      this.firebaseApplication = firebase.initializeApp(firebaseConfiguration);
+    } else if (firebase.apps[0]) {
+      this.firebaseApplication = firebase.apps[0];
+    } else {
+    }
   }
 
   createUser(email, password) {
@@ -23,5 +29,9 @@ export default class FirebaseAuthenticator {
     return this.firebaseApplication
       .auth()
       .signInWithEmailAndPassword(email, password);
+  }
+
+  updateUserDisplayName(displayName) {
+    return Promise.resolve(this.firebaseApplication.auth().currentUser);
   }
 }

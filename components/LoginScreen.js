@@ -33,7 +33,7 @@ export default class LoginScreen extends React.Component {
         <TextInput
           onChangeText={text => this.setState({ userNameText: text })}
           style={styles.textInput}
-          placeholder="Username"
+          placeholder="Email"
           autoCorrect={false}
           autoCapitalize="none"
           value={this.state.userNameText}

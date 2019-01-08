@@ -17,7 +17,7 @@ export default class UserDetails extends React.Component {
   render() {
     return (
       <View>
-        <Text>{this.state.user.email}</Text>;
+        <Text>{this.state.user.email}</Text>
       </View>
     );
   }
